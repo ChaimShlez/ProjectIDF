@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Enums;
+using ProjectIDF.Enemy;
 
 
 namespace ProjectIDF.Enemy
@@ -15,16 +16,17 @@ namespace ProjectIDF.Enemy
         private string Name;
         private int Rank;
         private bool StatusLife;
-        private List<WeaponsEnum> TypeWeapon;
-        
-        public Terrorist(string name, int rank, bool statusLife, List<WeaponsEnum> typeWeapon)
+        private List<WeaponsEnum> TypeWeapons;
+        private int Score;
+
+        public Terrorist(string name, int rank, bool statusLife, List<WeaponsEnum> typeWeapons)
         {
             Name = name;
             Rank = rank;
             StatusLife = statusLife;
-            TypeWeapon = typeWeapon;
+            TypeWeapons= typeWeapons;
+            Score = CalculateScore.calculateScoreTerrorist(TypeWeapons,Rank);
         }
-
 
        
 
@@ -46,10 +48,16 @@ namespace ProjectIDF.Enemy
             set { StatusLife = value; }
         }
 
-        public List<WeaponsEnum> MyProperty
+        public List<WeaponsEnum> Weapons
         {
-            get { return TypeWeapon; }
-            set { TypeWeapon = value; }
+            get { return TypeWeapons; }
+            set { TypeWeapons = value; }
+        }
+
+        public int GetScore
+        {
+            get { return Score; }
+           private set { Rank = value; }
         }
 
     }
