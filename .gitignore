@@ -1,0 +1,9 @@
+.vs/
+bin/
+obj/
+/packages/
+riderMoriderModule.iml
+/_ReSharper.Caches/
+.csproj/
+.idea/
+*.DotSettings.user
