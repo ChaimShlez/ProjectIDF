@@ -11,7 +11,6 @@ namespace ProjectIDF.Enemy
 {
     internal class Terrorist
     {
-
         private string Name;
         private int Rank;
         private bool StatusLife;

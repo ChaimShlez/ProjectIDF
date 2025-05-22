@@ -7,6 +7,8 @@ namespace ProjectIDF.Base
        private string _commander;
        private List<string> _attackOptions;
 
+       
+       
        protected Organization(string name, string establishment, string commander, List<string> attackOptions)
        {
            _name = name;
