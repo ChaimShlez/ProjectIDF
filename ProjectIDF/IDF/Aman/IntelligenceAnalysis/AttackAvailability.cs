@@ -7,9 +7,9 @@ using ProjectIDF.Base;
 
 namespace ProjectIDF.IDF.Aman.IntelligenceAnalysis
 {
-    internal class AttackAvailability
+    internal static class AttackAvailability
     {
-        public List<AttackUnits> ReadyAttack(List<AttackUnits> units) 
+        public static List<AttackUnits> ReadyAttack(List<AttackUnits> units) 
         {
             List<AttackUnits> unitsList = new List<AttackUnits>();
             foreach (AttackUnits unit in units)
