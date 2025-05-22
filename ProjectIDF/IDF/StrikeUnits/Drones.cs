@@ -14,5 +14,13 @@ namespace ProjectIDF.IDF.StrikeUnits
             : base(uniqueName, ammunitionCapacity, bombSize, typeOfTarget)
         {
         }
+
+
+
+        public override void MakingAttack()
+        {
+
+            MyAmmunitionCapacity = -1;
+        }
     }
 }

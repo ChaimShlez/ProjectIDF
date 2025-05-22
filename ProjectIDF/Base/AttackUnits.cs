@@ -46,5 +46,7 @@ namespace ProjectIDF.Base
             get { return this.TypeOfTarget; }
             set { this.TypeOfTarget = value; }
         }
+
+        public abstract void MakingAttack();
     }
 }

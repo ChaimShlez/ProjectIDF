@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
+using ProjectIDFbase;
 
 namespace ProjectIDF.IDF.StrikeUnits
 {
@@ -13,6 +14,12 @@ namespace ProjectIDF.IDF.StrikeUnits
         public Artillery(string uniqueName, int ammunitionCapacity, float bombSize, List<string> typeOfTarget)
             : base(uniqueName, ammunitionCapacity, bombSize, typeOfTarget)
         {
+        }
+
+        public override void MakingAttack()
+        {
+
+            MyAmmunitionCapacity = -1;
         }
     }
 }

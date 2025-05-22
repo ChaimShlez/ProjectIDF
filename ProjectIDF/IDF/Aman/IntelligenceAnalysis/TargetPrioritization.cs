@@ -26,11 +26,33 @@ namespace ProjectIDF.IDF.Aman.IntelligenceAnalysis
                     dictReports[rep.ReportTerroist.nameTrrorist].Add(rep);
                 }
             }
-           
 
-            List<Report>Mus
+
+            Terrorist terror = GetMaxTerrorist(dictReports);
 
             return ter;
+        }
+
+        private Terrorist GetMaxTerrorist(Dictionary<string, List<Report>> dictReports)
+        {
+            int max = 0;
+            Terrorist maxTerrorist =null;
+            foreach (var rep in dictReports) {
+              
+                List<Report> list = rep.Value;
+
+                Report last = list[list.Count - 1];
+                Terrorist current=last.ReportTerroist;
+                if(current.GetScore > max)
+                {
+                    max = current.GetScore;
+                    maxTerrorist = current;
+                }
+
+                    
+                
+            }
+            return maxTerrorist;
         }
     }
 }

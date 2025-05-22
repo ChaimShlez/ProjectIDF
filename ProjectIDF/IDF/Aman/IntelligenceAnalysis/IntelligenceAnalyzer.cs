@@ -1,11 +1,11 @@
 using ProjectIDF.Enemy;
 
-namespace ProjectIDF.IDF.Aman
+namespace ProjectIDF.IDF.Aman.IntelligenceAnalysis
 
 {
-     static class IntelligenceAnalyzer
+     public class IntelligenceAnalyzer
     {
-        static Terrorist Analyzer(List<Report> reportList)
+        public Terrorist Analyzer(List<Report> reportList)
         {
             Dictionary<Terrorist, int> collectionReports = new Dictionary<Terrorist, int>();  
             foreach (Report report in reportList)

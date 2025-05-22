@@ -13,7 +13,9 @@ namespace ProjectIDF.IDF.ConsoleCommander
     {
         CollectionReports collectionReports = new CollectionReports();
         AttackAvailability attackAvailability = new AttackAvailability();
+        IntelligenceAnalyzer intelligenceanalyzer = new IntelligenceAnalyzer();
         List<AttackUnits> attackUnits = new List<AttackUnits>();
+        TargetPrioritization targetPrioritization = new TargetPrioritization();
 
         public void Menu()
         {
@@ -30,11 +32,13 @@ namespace ProjectIDF.IDF.ConsoleCommander
             switch (choice)
             {
                 case 1:
-                    IntelligenceAnalyzer.Analyzer(collectionReports.Collection);
+                    intelligenceanalyzer.Analyzer(collectionReports.Collection);
                     break;
                 case 2:
                     attackAvailability.ReadyAttack(attackUnits);
                     break;
+                case 3:
+
             }
         }
     }
