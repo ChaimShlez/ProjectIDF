@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
-using ProjectIDFbase;
+using ProjectIDF.Enums;
+
 
 namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
     internal class Artillery : AttackUnits
     {
         // constructor
-        public Artillery(string uniqueName, int ammunitionCapacity, float bombSize, List<string> typeOfTarget)
+        public Artillery(string uniqueName, int ammunitionCapacity, float bombSize, List<TerroristLocation> typeOfTarget)
             : base(uniqueName, ammunitionCapacity, bombSize, typeOfTarget)
         {
         }

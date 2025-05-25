@@ -5,43 +5,61 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 using ProjectIDF.Entity;
+using ProjectIDF.Entity.StrikeUnitsEntity;
 using ProjectIDF.Logic.IntelligenceAnalysis;
 
 namespace ProjectIDF.UI
 {
-    public class ConsoleSimulation
+   internal class ConsoleSimulation
     {
-        CollectionReportsEntity collectionReports = new CollectionReportsEntity();
-        AttackAvailability attackAvailability = new AttackAvailability();
-        IntelligenceAnalyzer intelligenceanalyzer = new IntelligenceAnalyzer();
-        List<AttackUnits> attackUnits = new List<AttackUnits>();
-        TargetPrioritization targetPrioritization = new TargetPrioritization();
+
+
+        private CollectionUnits _collectionUnits;
+        private CollectionReportsEntity _reports;
+        private IntelligenceAnalyzer _analyzer;
+        private AttackAvailability _attackAvailability;
+        private TargetPrioritization _targetPrioritization;
+
+       
+
+        public ConsoleSimulation(CollectionUnits units, CollectionReportsEntity reports, IntelligenceAnalyzer analyzer, AttackAvailability attackAvailability,
+            TargetPrioritization targetPrioritization)
+        {
+             _collectionUnits = units;
+            _reports = reports;
+            _analyzer = analyzer;
+            _attackAvailability = attackAvailability;
+            _targetPrioritization = targetPrioritization;
+        }
 
         public void Menu()
         {
+            int choise = 0;
             Console.WriteLine(
                 "Prese 1 to identifying the terrorist with most intelligence reports\n" +
                 "Prese 2 to view all currently available attack units and their remaining capacity\n" +
                 "Prese 3 to determining the most dangerous terrorist based on quality rating\n" +
                 "Prese 4 to selecting an appropriate strike unit based on the location and type of terrorist\n");
-            int choice = int.Parse(Console.ReadLine());
-            getChoice(choice);
+            int.TryParse(Console.ReadLine(), out choise);
+            getChoice(choise);
         }
-        public void getChoice(int choice)
+        public void getChoice(int choise)
         {
-            switch (choice)
+            switch (choise)
             {
                 case 1:
-                    intelligenceanalyzer.Analyzer(collectionReports.Collection);
+                    _analyzer.Analyzer(_reports.Collection);
                     break;
                 case 2:
-                    attackAvailability.ReadyAttack(attackUnits);
+                    _attackAvailability.ReadyAttack(_collectionUnits.MyCollectionUnits);
+
                     break;
                 case 3:
-                    targetPrioritization.MostDangerousTerrorist(collectionReports.Collection);
+                    _targetPrioritization.MostDangerousTerrorist(_reports.Collection);
                     break;
-                    case 4:
-
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
             }
         }
     }

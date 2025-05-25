@@ -28,5 +28,10 @@ namespace ProjectIDF.Entity
             set { Reprots = value; }
         }
 
+        public void AddReports(ReportEntity entity)
+        {
+            Reprots.Add(entity);
+        }
+
     }
 }

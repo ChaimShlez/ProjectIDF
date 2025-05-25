@@ -21,5 +21,11 @@ namespace ProjectIDF.Entity.StrikeUnitsEntity
             get { return units; }
             set { units = value; }
         }
+
+
+        public void AddUnits(AttackUnits unit)
+        {
+            units.Add(unit);
+        }
     }
 }

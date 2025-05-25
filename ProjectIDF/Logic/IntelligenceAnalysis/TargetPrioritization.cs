@@ -9,24 +9,18 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class TargetPrioritization
     {
-
-        public TerroristEntity MostDangerousTerrorist(List<ReportEntity> reports) {
-
-          
+        public TerroristEntity MostDangerousTerrorist(List<ReportEntity> reports)
+        {
             Dictionary<string, List<ReportEntity>> dictReports = new Dictionary<string, List<ReportEntity>>();
 
-            foreach(ReportEntity rep in reports)
+            foreach (ReportEntity rep in reports)
             {
-                if (dictReports.ContainsKey(rep.ReportTerroist.nameTrrorist)) {
-
+                if (!dictReports.ContainsKey(rep.ReportTerroist.nameTrrorist))
+                {
                     dictReports[rep.ReportTerroist.nameTrrorist] = new List<ReportEntity>();
                 }
-                else
-                {
-                    dictReports[rep.ReportTerroist.nameTrrorist].Add(rep);
-                }
+                dictReports[rep.ReportTerroist.nameTrrorist].Add(rep);
             }
-
 
             TerroristEntity terrorist = GetMaxTerrorist(dictReports);
 
@@ -36,22 +30,22 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
         private TerroristEntity GetMaxTerrorist(Dictionary<string, List<ReportEntity>> dictReports)
         {
             int max = 0;
-            TerroristEntity maxTerrorist =null;
-            foreach (var rep in dictReports) {
-              
+            TerroristEntity? maxTerrorist = null;
+
+            foreach (var rep in dictReports)
+            {
                 List<ReportEntity> list = rep.Value;
 
                 ReportEntity last = list[list.Count - 1];
-                TerroristEntity current=last.ReportTerroist;
-                if(current.GetScore > max)
+                TerroristEntity current = last.ReportTerroist;
+
+                if (current.GetScore > max)
                 {
                     max = current.GetScore;
                     maxTerrorist = current;
                 }
-
-                    
-                
             }
+
             return maxTerrorist;
         }
     }

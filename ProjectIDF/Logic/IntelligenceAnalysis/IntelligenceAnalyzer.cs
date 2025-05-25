@@ -3,7 +3,7 @@ using ProjectIDF.Entity;
 namespace ProjectIDF.Logic.IntelligenceAnalysis
 
 {
-     public class IntelligenceAnalyzer
+     internal class IntelligenceAnalyzer
     {
         public TerroristEntity Analyzer(List<ReportEntity> reportList)
         {
@@ -28,8 +28,23 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
         
         static TerroristEntity TerroristMostReports(Dictionary<TerroristEntity, int> collectionReports)
         {
-            TerroristEntity maxKey = collectionReports.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
-            return maxKey;
+            //TerroristEntity maxKey = collectionReports.Aggregate((a, b) => a.Value > b.Value ? a : b).Key;
+            //return maxKey;
+            int max = 0;
+            TerroristEntity? maxTerrorist = null;
+
+            foreach (var rep in collectionReports)
+            {
+                
+
+                if (rep.Value> max)
+                {
+                    max = rep.Value;
+                    maxTerrorist = rep.Key;
+                }
+            }
+
+            return maxTerrorist;
         }
         
         
