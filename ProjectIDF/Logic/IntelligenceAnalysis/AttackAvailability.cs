@@ -5,21 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.Aman.IntelligenceAnalysis
+namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class AttackAvailability
     {
-        public List<AttackUnits> ReadyAttack(List<AttackUnits> units) 
+        
+
+        public void ReadyAttack(List<AttackUnits> units)
         {
+           
+
             List<AttackUnits> unitsList = new List<AttackUnits>();
             foreach (AttackUnits unit in units)
             {
                 if (unit.MyAmmunitionCapacity > 0)
                 {
+                   
                     unitsList.Add(unit);
                 }
             }
-            return unitsList;
+            foreach (AttackUnits unit in unitsList)
+            {
+                Console.WriteLine($"Unit Name: {unit.MyUniqueName}, Ammunition Capacity: {unit.MyAmmunitionCapacity}, Bomb Size: {unit.MyBombSize}");
+            }
         }
     }
 }

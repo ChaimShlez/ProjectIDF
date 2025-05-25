@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.StrikeUnits
+namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
     internal class CollectionUnits
     {
@@ -20,6 +20,12 @@ namespace ProjectIDF.IDF.StrikeUnits
         {
             get { return units; }
             set { units = value; }
+        }
+
+
+        public void AddUnits(AttackUnits unit)
+        {
+            units.Add(unit);
         }
     }
 }
