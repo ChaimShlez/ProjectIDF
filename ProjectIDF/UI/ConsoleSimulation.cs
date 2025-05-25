@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjectIDF.IDF.Aman;
-using ProjectIDF.IDF.Aman.IntelligenceAnalysis;
 using ProjectIDF.Base;
+using ProjectIDF.Entity;
+using ProjectIDF.Logic.IntelligenceAnalysis;
 
-namespace ProjectIDF.IDF.ConsoleCommander
+namespace ProjectIDF.UI
 {
     public class ConsoleSimulation
     {
-        CollectionReports collectionReports = new CollectionReports();
+        CollectionReportsEntity collectionReports = new CollectionReportsEntity();
         AttackAvailability attackAvailability = new AttackAvailability();
         IntelligenceAnalyzer intelligenceanalyzer = new IntelligenceAnalyzer();
         List<AttackUnits> attackUnits = new List<AttackUnits>();
@@ -38,6 +38,9 @@ namespace ProjectIDF.IDF.ConsoleCommander
                     attackAvailability.ReadyAttack(attackUnits);
                     break;
                 case 3:
+                    targetPrioritization.MostDangerousTerrorist(collectionReports.Collection);
+                    break;
+                    case 4:
 
             }
         }

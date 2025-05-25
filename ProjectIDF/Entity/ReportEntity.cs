@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ProjectIDF.Enemy;
 using ProjectIDF.Enums;
 
 
-namespace ProjectIDF.IDF.Aman
+namespace ProjectIDF.Entity
 {
-    internal class Report
+    internal class ReportEntity
     {
-        private Terrorist Terroist;
+        private TerroristEntity Terroist;
         private TerroristLocation Location;
         private DateTime Timestamp;
 
-        public Report(Terrorist terroist, TerroristLocation location, DateTime time)
+        public ReportEntity(TerroristEntity terroist, TerroristLocation location, DateTime time)
         {
             Terroist = terroist;
             Location = location;
@@ -26,7 +25,7 @@ namespace ProjectIDF.IDF.Aman
 
 
 
-        public Terrorist ReportTerroist
+        public TerroristEntity ReportTerroist
         {
             get { return Terroist; }
             set { Terroist = value; }

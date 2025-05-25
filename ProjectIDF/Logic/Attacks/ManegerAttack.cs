@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.Attacks
+namespace ProjectIDF.Logic.Attacks
 {
-    internal class MAnegerAttack
+    internal class ManegerAttack
     {
-        public void MAneger(List<AttackUnits> units)
+        public static void MakeManegerAttack(AttackUnits unit)
         {
-            foreach (var unit in units)
-            {
+            
                 unit.MakingAttack();
-            }
+            
         }
     }
 }

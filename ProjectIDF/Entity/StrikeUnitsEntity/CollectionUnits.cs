@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.StrikeUnits
+namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
     internal class CollectionUnits
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ProjectIDF.Base;
 using ProjectIDFbase;
 
-namespace ProjectIDF.IDF.StrikeUnits
+namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
     internal class Artillery : AttackUnits
     {

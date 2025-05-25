@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Enums;
-using ProjectIDF.Enemy;
+using ProjectIDF.Logic;
 
 
-namespace ProjectIDF.Enemy
+namespace ProjectIDF.Entity
 
 {
-    internal class Terrorist
+    internal class TerroristEntity
     {
         private string Name;
         private int Rank;
@@ -18,7 +18,7 @@ namespace ProjectIDF.Enemy
         private List<WeaponsEnum> TypeWeapons;
         private int Score;
 
-        public Terrorist(string name, int rank, bool statusLife, List<WeaponsEnum> typeWeapons)
+        public TerroristEntity(string name, int rank, bool statusLife, List<WeaponsEnum> typeWeapons)
         {
             Name = name;
             Rank = rank;

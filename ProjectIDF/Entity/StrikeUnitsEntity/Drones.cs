@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.StrikeUnits
+namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
-    internal class F16Plane : AttackUnits
+    internal class Drones : AttackUnits
     {
         // constructor
-        public F16Plane(string uniqueName, int ammunitionCapacity, float bombSize, List<string> typeOfTarget)
+        public Drones(string uniqueName, int ammunitionCapacity, float bombSize, List<string> typeOfTarget)
             : base(uniqueName, ammunitionCapacity, bombSize, typeOfTarget)
         {
         }
-
 
 
 

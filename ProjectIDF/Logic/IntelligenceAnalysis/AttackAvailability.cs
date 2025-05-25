@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
 
-namespace ProjectIDF.IDF.Aman.IntelligenceAnalysis
+namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class AttackAvailability
     {

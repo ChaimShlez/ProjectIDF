@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjectIDF.Enums;
 
 namespace ProjectIDF.Base
 {
@@ -12,10 +13,10 @@ namespace ProjectIDF.Base
         private string UniqueName;
         private int AmmunitionCapacity;
         private float BombSize;
-        private List <string> TypeOfTarget;
+        private List <TerroristLocation> TypeOfTarget;
 
         // constructor
-        protected AttackUnits(string uniqueName, int ammunitionCapacity, float bombSize, List<string> typeOfTarget)
+        protected AttackUnits(string uniqueName, int ammunitionCapacity, float bombSize, List<TerroristLocation> typeOfTarget)
         {
             this.UniqueName = uniqueName;
             this.AmmunitionCapacity = ammunitionCapacity;
@@ -41,7 +42,7 @@ namespace ProjectIDF.Base
             set { this.BombSize = value; }
         }
 
-        public List<string> MyTypeOfTarget
+        public List<TerroristLocation> MyTypeOfTarget
         {
             get { return this.TypeOfTarget; }
             set { this.TypeOfTarget = value; }
