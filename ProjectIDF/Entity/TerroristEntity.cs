@@ -24,7 +24,7 @@ namespace ProjectIDF.Entity
             Rank = rank;
             StatusLife = statusLife;
             TypeWeapons= typeWeapons;
-            Score = CalculateScore.calculateScoreTerrorist(TypeWeapons,Rank);
+            Score = CalculateScore.CalculateScoreTerrorist(TypeWeapons,Rank);
         }
 
        

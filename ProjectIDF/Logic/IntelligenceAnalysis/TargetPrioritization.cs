@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Entity;
+using ProjectIDF.Enums;
+using ProjectIDF.UI;
 
 namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class TargetPrioritization
     {
-        public TerroristEntity MostDangerousTerrorist(List<ReportEntity> reports)
+        public ReportEntity? MostDangerousTerrorist(List<ReportEntity> reports)
         {
             Dictionary<string, List<ReportEntity>> dictReports = new Dictionary<string, List<ReportEntity>>();
 
@@ -22,27 +24,43 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
                 dictReports[rep.ReportTerroist.nameTrrorist].Add(rep);
             }
 
-            TerroristEntity terrorist = GetMaxTerrorist(dictReports);
+            ReportEntity terrorist = GetMaxTerrorist(dictReports);
+            string life ="";
+            if (terrorist.ReportTerroist.statusTrrorist)
+            {
+                life = "live";
+            }
+            else
+            {
+                life = "dead";
+            }
 
+
+
+            
+            string t = ($"name {terrorist.ReportTerroist.nameTrrorist} rank :{terrorist.ReportTerroist.typeRank} life :{life}" +
+            $" weapons:{String.Join(" ",terrorist.ReportTerroist.Weapons)} ,score terrorist is {terrorist.ReportTerroist.GetScore} ");
+
+            PrintSelection.PrintData(t);
             return terrorist;
         }
 
-        private TerroristEntity GetMaxTerrorist(Dictionary<string, List<ReportEntity>> dictReports)
+        private ReportEntity GetMaxTerrorist(Dictionary<string, List<ReportEntity>> dictReports)
         {
             int max = 0;
-            TerroristEntity? maxTerrorist = null;
+            ReportEntity? maxTerrorist = null;
 
             foreach (var rep in dictReports)
             {
                 List<ReportEntity> list = rep.Value;
 
                 ReportEntity last = list[list.Count - 1];
-                TerroristEntity current = last.ReportTerroist;
+                //TerroristEntity current = last.ReportTerroist;
 
-                if (current.GetScore > max)
+                if (last.ReportTerroist.GetScore > max)
                 {
-                    max = current.GetScore;
-                    maxTerrorist = current;
+                    max = last.ReportTerroist.GetScore;
+                    maxTerrorist = last;
                 }
             }
 
