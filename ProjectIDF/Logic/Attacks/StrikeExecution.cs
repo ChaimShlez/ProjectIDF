@@ -13,6 +13,8 @@ namespace ProjectIDF.Logic.Attacks
 
         public void Execution(List<AttackUnits> attackUnits, ReportEntity report)
         {
+
+
             foreach (var unit in attackUnits)
             {
 

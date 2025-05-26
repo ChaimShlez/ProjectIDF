@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ProjectIDF.Base;
+using ProjectIDF.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
@@ -26,7 +28,11 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
             }
             foreach (AttackUnits unit in unitsList)
             {
-                Console.WriteLine($"Unit Name: {unit.MyUniqueName}, Ammunition Capacity: {unit.MyAmmunitionCapacity}, Bomb Size: {unit.MyBombSize}");
+
+               
+                string data= ($"Unit Name: {unit.MyUniqueName}," +
+                    $" Ammunition Capacity: {unit.MyAmmunitionCapacity}, Bomb Size: {unit.MyBombSize} target :{String.Join(" ", unit.MyTypeOfTarget)}");
+                PrintSelection.PrintData(data);
             }
         }
     }

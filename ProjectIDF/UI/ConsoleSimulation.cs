@@ -7,6 +7,7 @@ using ProjectIDF.Base;
 using ProjectIDF.Entity;
 using ProjectIDF.Entity.StrikeUnitsEntity;
 using ProjectIDF.Logic.IntelligenceAnalysis;
+using ProjectIDF.Logic.Attacks;
 
 namespace ProjectIDF.UI
 {
@@ -19,17 +20,19 @@ namespace ProjectIDF.UI
         private IntelligenceAnalyzer _analyzer;
         private AttackAvailability _attackAvailability;
         private TargetPrioritization _targetPrioritization;
+        private StrikeExecution _strikeExecution;
 
-       
+
 
         public ConsoleSimulation(CollectionUnits units, CollectionReportsEntity reports, IntelligenceAnalyzer analyzer, AttackAvailability attackAvailability,
-            TargetPrioritization targetPrioritization)
+            TargetPrioritization targetPrioritization , StrikeExecution strikeExecution)
         {
              _collectionUnits = units;
             _reports = reports;
             _analyzer = analyzer;
             _attackAvailability = attackAvailability;
             _targetPrioritization = targetPrioritization;
+            _strikeExecution = strikeExecution;
         }
 
         public void Menu()
@@ -41,9 +44,9 @@ namespace ProjectIDF.UI
                 "Prese 3 to determining the most dangerous terrorist based on quality rating\n" +
                 "Prese 4 to selecting an appropriate strike unit based on the location and type of terrorist\n");
             int.TryParse(Console.ReadLine(), out choise);
-            getChoice(choise);
+            this.GetChoice(choise);
         }
-        public void getChoice(int choise)
+        public void GetChoice(int choise)
         {
             switch (choise)
             {
@@ -57,6 +60,8 @@ namespace ProjectIDF.UI
                 case 3:
                     _targetPrioritization.MostDangerousTerrorist(_reports.Collection);
                     break;
+                    //case 4:
+                    //_strikeExecution.Execution(_reports.Collection);
                 default:
                     Console.WriteLine("Invalid choice. Please try again.");
                     break;

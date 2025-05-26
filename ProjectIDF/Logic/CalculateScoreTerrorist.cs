@@ -10,7 +10,7 @@ namespace ProjectIDF.Logic
     internal class CalculateScore
     {
 
-        public static int calculateScoreTerrorist(List<WeaponsEnum> TypeWeapons,int rank)
+        public static int CalculateScoreTerrorist(List<WeaponsEnum> TypeWeapons,int rank)
         {
             int sumScoreWeapons = 0;
 
