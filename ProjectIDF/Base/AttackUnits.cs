@@ -22,6 +22,7 @@ namespace ProjectIDF.Base
             this.AmmunitionCapacity = ammunitionCapacity;
             this.BombSize = bombSize;
             this.TypeOfTarget = typeOfTarget;
+            
         }
 
         public string MyUniqueName
@@ -51,7 +52,7 @@ namespace ProjectIDF.Base
         public override string ToString()
         {
 
-            return $"Unit Name: {MyUniqueName}, Ammo: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}, Targets: {String.Join(", ", MyTypeOfTarget)}";
+            return $"Unit Name: {MyUniqueName},Capacity: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}, Targets: {String.Join(", ", MyTypeOfTarget)}";
         }
 
         public abstract void MakingAttack();

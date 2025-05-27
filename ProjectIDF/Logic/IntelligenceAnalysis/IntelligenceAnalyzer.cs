@@ -6,8 +6,10 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
      internal class IntelligenceAnalyzer
     {
-        public void Analyzer(List<ReportEntity> reportList)
+        public TerroristEntity Analyzer(List<ReportEntity> reportList)
         {
+
+          
             Dictionary<TerroristEntity, int> collectionReports = new Dictionary<TerroristEntity, int>();  
             foreach (ReportEntity report in reportList)
             {
@@ -24,27 +26,15 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 
             TerroristEntity result = TerroristMostReports(collectionReports);
 
-            string life = "";
-            if (result.statusTrrorist)
-            {
-                life = "live";
-            }
-            else
-            {
-                life = "dead";
-            }
-
-            string t = ($"name {result.nameTrrorist} rank :{result.typeRank} life :{life}" +
-            $" weapons:{String.Join(" ", result.Weapons)} ,score terrorist is {result.GetScore} ");
-
-            PrintSelection.PrintData(t);
+            
+            return result;
         }
         
         static TerroristEntity TerroristMostReports(Dictionary<TerroristEntity, int> collectionReports)
         {
            
             int max = 0;
-            TerroristEntity? maxTerrorist = null;
+            TerroristEntity maxTerrorist = null!;
 
             foreach (var rep in collectionReports)
             {

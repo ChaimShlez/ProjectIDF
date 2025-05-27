@@ -20,19 +20,18 @@ namespace ProjectIDF.UI
         private IntelligenceAnalyzer _analyzer;
         private AttackAvailability _attackAvailability;
         private TargetPrioritization _targetPrioritization;
-        private StrikeExecution _strikeExecution;
-
+        
 
 
         public ConsoleSimulation(CollectionUnits units, CollectionReportsEntity reports, IntelligenceAnalyzer analyzer, AttackAvailability attackAvailability,
-            TargetPrioritization targetPrioritization , StrikeExecution strikeExecution)
+            TargetPrioritization targetPrioritization )
         {
              _collectionUnits = units;
             _reports = reports;
             _analyzer = analyzer;
             _attackAvailability = attackAvailability;
             _targetPrioritization = targetPrioritization;
-            _strikeExecution = strikeExecution;
+           
         }
 
         public void Menu()
@@ -51,7 +50,8 @@ namespace ProjectIDF.UI
             switch (choise)
             {
                 case 1:
-                    _analyzer.Analyzer(_reports.Collection);
+                    TerroristEntity maxTerrorist = _analyzer.Analyzer(_reports.Collection);
+                    Console.WriteLine(maxTerrorist);
                     break;
                 case 2:
                    
@@ -77,15 +77,14 @@ namespace ProjectIDF.UI
                     int unitNumber = 1;
                     foreach (var item in unitsList)
                     {
-                        Console.WriteLine($"לחץ {unitNumber} כדי לבחור את היחידה: {item}");
+                        Console.WriteLine($"press number {unitNumber} for {item}");
                         unitNumber++;
                     }
 
-                    
-                 
                     int.TryParse(Console.ReadLine(), out choiseUnit);
 
-                        _strikeExecution.Execution(unitsList[choiseUnit - 1], reportOne);
+                       
+                    ManegerAttack.MakeAttack(unitsList[choiseUnit - 1], reportOne);
                     
 
                     break;

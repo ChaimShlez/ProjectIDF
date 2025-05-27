@@ -29,20 +29,19 @@ namespace ProjectIDF.Logic
             {
                 case WeaponsEnum.AK47:
                     return 3;
-                    break;
+                  
                 case WeaponsEnum.GUN:
                     return 2;
-                    break;
+                   
                 case WeaponsEnum.KNIFE:
                     return 1;
-                    break;
+                   
                 case WeaponsEnum.M16:
                     return 3;
-                    break;
-
+                  
                 default:
                     return 0;
-                    break;
+                  
 
 
             }
