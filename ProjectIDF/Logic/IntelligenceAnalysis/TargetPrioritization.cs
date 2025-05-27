@@ -11,7 +11,7 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class TargetPrioritization
     {
-        public ReportEntity? MostDangerousTerrorist(List<ReportEntity> reports)
+        public ReportEntity MostDangerousTerrorist(List<ReportEntity> reports)
         {
             Dictionary<string, List<ReportEntity>> dictReports = new Dictionary<string, List<ReportEntity>>();
 
@@ -38,10 +38,10 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 
 
             
-            string t = ($"name {terrorist.ReportTerroist.nameTrrorist} rank :{terrorist.ReportTerroist.typeRank} life :{life}" +
-            $" weapons:{String.Join(" ",terrorist.ReportTerroist.Weapons)} ,score terrorist is {terrorist.ReportTerroist.GetScore} ");
+            //string t = ($"name {terrorist.ReportTerroist.nameTrrorist} rank :{terrorist.ReportTerroist.typeRank} life :{life}" +
+            //$" weapons:{String.Join(" ",terrorist.ReportTerroist.Weapons)} ,score terrorist is {terrorist.ReportTerroist.GetScore} ");
 
-            PrintSelection.PrintData(t);
+            //PrintSelection.PrintData(t);
             return terrorist;
         }
 

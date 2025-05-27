@@ -16,7 +16,11 @@ namespace ProjectIDF.Entity.StrikeUnitsEntity
         {
         }
 
+        public override string ToString()
+        {
 
+            return $"Unit Name: {MyUniqueName}, Ammo: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}, Targets: {String.Join(", ", MyTypeOfTarget)}";
+        }
 
         public override void MakingAttack()
         {

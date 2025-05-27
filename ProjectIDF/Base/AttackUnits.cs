@@ -48,6 +48,12 @@ namespace ProjectIDF.Base
             set { this.TypeOfTarget = value; }
         }
 
+        public override string ToString()
+        {
+
+            return $"Unit Name: {MyUniqueName}, Ammo: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}, Targets: {String.Join(", ", MyTypeOfTarget)}";
+        }
+
         public abstract void MakingAttack();
     }
 }

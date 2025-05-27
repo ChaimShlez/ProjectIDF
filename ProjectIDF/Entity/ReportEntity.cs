@@ -42,11 +42,13 @@ namespace ProjectIDF.Entity
             get { return Timestamp; }
             set { Timestamp = value; }
         }
+        public override string ToString()
+        {
 
-
-
-
-
-
+            return $"terrorist name: {ReportTerroist.nameTrrorist},Rank :{ReportTerroist.typeRank} " +
+                $"Status life: {ReportTerroist.statusTrrorist}, Weapons:{String.Join("," , ReportTerroist.Weapons)} " +
+                $"Score : {ReportTerroist.GetScore} Timestamp : {ReportTimestamp}";
+        }
+       
     }
 }
