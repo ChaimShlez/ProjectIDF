@@ -11,7 +11,7 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
 {
     internal class TargetPrioritization
     {
-        public ReportEntity? MostDangerousTerrorist(List<ReportEntity> reports)
+        public ReportEntity MostDangerousTerrorist(List<ReportEntity> reports)
         {
             Dictionary<string, List<ReportEntity>> dictReports = new Dictionary<string, List<ReportEntity>>();
 
@@ -25,37 +25,24 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
             }
 
             ReportEntity terrorist = GetMaxTerrorist(dictReports);
-            string life ="";
-            if (terrorist.ReportTerroist.statusTrrorist)
-            {
-                life = "live";
-            }
-            else
-            {
-                life = "dead";
-            }
 
+           
+           
 
-
-            
-            string t = ($"name {terrorist.ReportTerroist.nameTrrorist} rank :{terrorist.ReportTerroist.typeRank} life :{life}" +
-            $" weapons:{String.Join(" ",terrorist.ReportTerroist.Weapons)} ,score terrorist is {terrorist.ReportTerroist.GetScore} ");
-
-            PrintSelection.PrintData(t);
             return terrorist;
         }
 
         private ReportEntity GetMaxTerrorist(Dictionary<string, List<ReportEntity>> dictReports)
         {
             int max = 0;
-            ReportEntity? maxTerrorist = null;
+            ReportEntity maxTerrorist = null!;
 
             foreach (var rep in dictReports)
             {
                 List<ReportEntity> list = rep.Value;
 
                 ReportEntity last = list[list.Count - 1];
-                //TerroristEntity current = last.ReportTerroist;
+               
 
                 if (last.ReportTerroist.GetScore > max)
                 {
@@ -64,7 +51,7 @@ namespace ProjectIDF.Logic.IntelligenceAnalysis
                 }
             }
 
-            return maxTerrorist;
+            return maxTerrorist!;
         }
     }
 }

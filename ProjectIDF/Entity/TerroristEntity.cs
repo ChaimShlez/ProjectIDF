@@ -59,5 +59,12 @@ namespace ProjectIDF.Entity
            private set { Rank = value; }
         }
 
+        public override string ToString()
+        {
+
+            return $"terrorist name: {nameTrrorist},Rank :{typeRank} " +
+                $"Status life: {statusTrrorist}, Weapons:{String.Join(",",Weapons)} " +
+                $"Score : {GetScore}";
+        }
     }
 }
