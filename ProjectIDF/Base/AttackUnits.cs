@@ -56,5 +56,7 @@ namespace ProjectIDF.Base
         }
 
         public abstract void MakingAttack();
+
+        public abstract void Accept(IUnitVisitor visitor);
     }
 }
