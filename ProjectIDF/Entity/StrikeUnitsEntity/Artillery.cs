@@ -9,23 +9,52 @@ using ProjectIDF.Enums;
 
 namespace ProjectIDF.Entity.StrikeUnitsEntity
 {
-    internal class Artillery : AttackUnits
+    internal class Artillery : AttackUnits ,IFuelUnit
     {
+
+        private int _Fuel=100;
         // constructor
         public Artillery(string uniqueName, int ammunitionCapacity, float bombSize, List<TerroristLocation> typeOfTarget)
             : base(uniqueName, ammunitionCapacity, bombSize, typeOfTarget)
         {
         }
 
-        public override string ToString()
-        {
-
-            return $"Unit Name: {MyUniqueName}, Capacity: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}, Targets: {String.Join(", ", MyTypeOfTarget)}";
-        }
+       
         public override void MakingAttack()
         {
 
             MyAmmunitionCapacity --;
+        }
+
+        public override void Accept(IUnitVisitor visitor)
+        {
+            visitor.VisitArtillery(this);
+        }
+
+        public int Fuel
+        {
+            get { return _Fuel; }
+           
+        }
+
+        public void Refuel()
+        {
+            if (_Fuel == 0)
+            {
+                _Fuel = 100;
+            }
+            else
+            {
+                _Fuel -=20;
+            }
+        }
+
+
+        public override string ToString()
+        {
+
+            return $"Unit Name: {MyUniqueName}, Capacity: {MyAmmunitionCapacity}, Bomb Size: {MyBombSize}," +
+                $" Targets: {String.Join(", ", MyTypeOfTarget)}  ,Fuel :  {_Fuel}";
         }
     }
 }

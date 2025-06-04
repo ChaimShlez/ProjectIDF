@@ -8,7 +8,7 @@ using ProjectIDF.Logic.Attacks;
 
 namespace ProjectIDF
 {
-    class Proram
+    class Prgoram
     {
         static void Main(string[] args)
         {
@@ -17,8 +17,10 @@ namespace ProjectIDF
             var analyzer = new IntelligenceAnalyzer();
             var attackAvailability = new AttackAvailability();
             var targetPrioritization = new TargetPrioritization();
-           
-           
+            var refillVisitor = new EnergyRefillVisitor();
+
+
+
 
 
             TerroristEntity muchamad = new TerroristEntity("mochamad", 2, true, new List<WeaponsEnum> { WeaponsEnum.GUN, WeaponsEnum.M16 });
@@ -31,7 +33,7 @@ namespace ProjectIDF
             collectionUnits.AddUnits(new F16Plane("F16", 10, 0.5f, new List<TerroristLocation> { TerroristLocation.HOME }));
             collectionUnits.AddUnits(new Artillery("Artillery", 12, 0.5f, new List<TerroristLocation> { TerroristLocation.OUTSIDE }));
 
-            var simulation = new ConsoleSimulation(collectionUnits, reports, analyzer, attackAvailability, targetPrioritization);
+            var simulation = new ConsoleSimulation(collectionUnits, reports, analyzer, attackAvailability, targetPrioritization, refillVisitor);
             simulation.Menu();
 
         }
